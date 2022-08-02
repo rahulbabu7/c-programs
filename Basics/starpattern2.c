@@ -1,3 +1,5 @@
+// PRINTS NUMBER UPTO LIMIT
+
 #include<stdio.h>
 int main()
 {   
