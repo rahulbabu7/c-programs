@@ -1,3 +1,5 @@
+   //*   ASCENDING ORDER
+
 #include<stdio.h>
 int main()
 {
