@@ -6,7 +6,7 @@ int main()
     scanf("%d",&size);
     char name[size];
     printf("ENter the name:\n");
-    scanf("%s",name);
+    scanf("%s",name);            //no space between fname and lname
 
     //Displaying the user entered value
     printf("name:%s",name);
