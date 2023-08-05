@@ -13,6 +13,7 @@ int main(){
         printf("Enter the size of incoming packet\n");
         scanf("%d",&incoming);
         printf("Incoming packet size :%d\n",incoming);
+         // Check if the incoming packet can fit in the bucket
         if(incoming <= (bucksize - thingsinbucket))
         {
             thingsinbucket +=incoming;
@@ -23,6 +24,7 @@ int main(){
             printf("Bucket status %d out of %d\n",thingsinbucket,bucksize);
             thingsinbucket = bucksize;
         }
+         // Perform outgoing token deduction
         if(thingsinbucket < outgoing){
             thingsinbucket = 0;
         }
