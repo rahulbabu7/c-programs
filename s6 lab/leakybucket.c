@@ -30,8 +30,9 @@ int main(){
         }
         else {
             thingsinbucket = thingsinbucket - outgoing;
-            printf("After outgoing bucket status :%d out of %d\n",thingsinbucket,bucksize);
+            
         }
+        printf("After outgoing bucket status :%d out of %d\n",thingsinbucket,bucksize);
         inp--;
     }
 }
