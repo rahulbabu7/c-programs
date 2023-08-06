@@ -4,11 +4,10 @@
 struct frame
 { int info;
   int seq; 
-} ;
+}p ;
 int ak;
 int t=5,k;
 int disconnect=0;
-struct frame p;
 char turn='s'; //Initialize first turn as sender
 int errorframe=1; //no Error
 int errorack=1;
