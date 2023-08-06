@@ -64,18 +64,18 @@ printf("%s\n",(errorframe==0?"Error While sending Packet":""));
  
 }
 void receiver()
-{   static int frexp=1;
+{   static int frseq=1;
     if(turn=='r')
    {
     if (errorframe!=0)
-	{ if(p.seq==frexp) 
+	{ if(p.seq==frseq) 
 //if frame sequence number is eq to frexp
 		{	printf("RECEIVER: Received packet with seq %d\n",p.seq);
 //note sequence number of frame arrived
 //to send acknowledgement 
 			ak=p.seq; 
 //increment the frame sequence number 
-			frexp=frexp+1;
+			frseq=frseq+1;
 //Set next turn as sender 
 			turn='s'; 
 //Send acknowledgement error for frame number 4
@@ -85,9 +85,9 @@ void receiver()
 	  else
 		{
 //Receiver received Duplicated frame for lost frame after Resending 
-			printf("RECEIVER: Duplicated packet with seq %d\n",frexp-1);
+			printf("RECEIVER: Duplicated packet with seq %d\n",frseq-1);
 //Note down acknowledgement number of frame 
-			ak=frexp-1;
+			ak=frseq-1;
 //next turn sender
 			turn='s'; 
 			errorack=rand()%4;
