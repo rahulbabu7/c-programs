@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include<unistd.h>
 struct frame
 { int info;
   int seq; 
@@ -19,7 +19,7 @@ void main()
   	 p.seq=0;//sequence number 
  	while(!disconnect)
  	  {   sender(); //call sender
-     		  for(k=1;k<=10000000;k++);
+     		 sleep(5);
 //After a finite amount of time call receiver 
 receiver(); 
    	}
