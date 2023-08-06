@@ -21,8 +21,9 @@ int main(){
         }
         else{
             printf("Dropped packet %d\n",incoming-(bucksize-thingsinbucket));
-            printf("Bucket status %d out of %d\n",thingsinbucket,bucksize);
+            
             thingsinbucket = bucksize;
+            printf("Bucket status %d out of %d\n",thingsinbucket,bucksize);
         }
          // Perform outgoing token deduction
         if(thingsinbucket < outgoing){
