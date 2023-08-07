@@ -34,7 +34,7 @@ int main() {
         }
         printf("Received from client: %s\n", buffer);
          printf("Enter the message:");
-         scanf("%s",&message);
+         scanf("%s",message);
         // Respond to the client
         sendto(server_fd, message, strlen(message), 0, (struct sockaddr *)&client_addr, addrlen);
 
