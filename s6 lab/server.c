@@ -34,7 +34,7 @@ int main() {
         scanf("%s", message);
 
         // Send a message to the client
-        send(new_socket, message, strlen(message), 0);
+        send(new_socket, message, strlen(message) +1, 0);
 
         // Receive the client's response
         recv(new_socket, buffer, sizeof(buffer), 0);

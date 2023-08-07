@@ -29,7 +29,7 @@ int main() {
         scanf("%s", message);
 
         // Send the response to the server
-        send(sock, message, strlen(message), 0);
+        send(sock, message, strlen(message) +1, 0);
 
        memset(buffer, 0, sizeof(buffer));
     }
