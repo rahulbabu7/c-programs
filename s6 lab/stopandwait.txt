@@ -1,0 +1,109 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+
+struct frame{
+    int info;
+    int seq;
+}p;
+
+int ack;
+int t=5;
+int disconnect = 0;
+char turn ='s';
+int errorack = 1;
+int errorframe = 1;
+
+void sender();
+void rec();
+void main(){
+ p.info =0;
+ p.seq = 0;
+ while(!disconnect){
+    sender();
+    sleep(5);
+    rec();
+ }
+}
+
+void sender(){
+    static int flag = 0;
+    if(turn =='s'){
+        if(errorack ==0){
+            printf("SENDER: send packet with seq no %d\n",p.seq);
+            errorframe = rand()%4;
+            if(errorframe ==0){
+                printf("Error while sending packet\n");
+            }
+            else{
+                printf(" ");
+            }
+            turn = 'r';
+        }
+        else{
+            if(flag==1){
+            printf("SENDER: recieved acknowlege for packet %d\n",ack);
+            }
+            if(p.seq==5){
+                disconnect = 1;
+                return;
+            }
+            p.info = p.info+1;
+            p.seq = p.seq+1;
+            printf("SENDER : send packet with seq no %d\n",p.seq);
+            errorframe = rand()%4;
+            if(errorframe == 0){
+                printf("Erro while sending packet\n");
+            }
+            else{
+                printf(" \n");
+            }
+            turn = 'r';
+            flag =1;
+        
+        }
+    }
+    else {
+        t--;
+        if(t==0)
+        {
+            turn = 's';
+            errorack = 0;
+            t=5;
+        }
+    }
+
+}
+
+void rec(){
+    static int frseq = 1;
+    if(turn == 'r'){
+    if(errorframe!=0){
+        if(p.seq==frseq){
+            printf("RECIEVER: recieved packet with seq no %d\n",p.seq);
+            ack = p.seq;
+            frseq++;
+            errorack = rand()%4;
+            if(errorack ==0){
+                printf("Error while sending ack\n");
+            }
+            else{
+                printf(" \n");
+            }
+            turn = 's';
+        }
+        else{
+            printf("RECIEVER:duplicate item with seq %d \n",frseq-1);
+            ack = frseq-1;
+             errorack = rand()%4;
+            if(errorack ==0){
+                printf("Error while sending ack\n");
+            }
+            else{
+                printf(" \n");
+            }
+            turn = 's';
+        }
+    }
+    }
+}
