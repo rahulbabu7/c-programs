@@ -64,7 +64,7 @@ printf("%s\n",(errorframe==0?"Error While sending Packet":""));
  
 }
 void receiver()
-{   static int frseq=1;
+{   static int frseq=1;  //frame sequence
     if(turn=='r')
    {
     if (errorframe!=0)
