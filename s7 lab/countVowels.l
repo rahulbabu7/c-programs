@@ -6,7 +6,8 @@ int cons = 0;
 
 %%
 [aeiouAEIOU] {vow++;}
-[^aeiouAEIOU] {cons++;}
+[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ] { cons++; }
+. 
 %%
 
 int yywrap() {

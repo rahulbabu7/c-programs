@@ -362,7 +362,7 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[9] =
     {   0,
-        0,    0,    5,    3,    1,    2,    2,    0
+        0,    0,    5,    3,    4,    1,    2,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -373,14 +373,14 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    3,    3,    3,    3,    3,    3,
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        1,    1,    1,    1,    1,    1,    3,    3,    3,    3,
+        1,    1,    1,    1,    3,    4,    4,    4,    3,    4,
+        4,    4,    3,    4,    4,    4,    4,    4,    3,    4,
+        4,    4,    4,    4,    3,    4,    4,    4,    4,    4,
+        1,    1,    1,    1,    1,    1,    3,    4,    4,    4,
 
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        3,    3,    1,    1,    1,    1,    1,    1,    1,    1,
+        3,    4,    4,    4,    3,    4,    4,    4,    4,    4,
+        3,    4,    4,    4,    4,    4,    3,    4,    4,    4,
+        4,    4,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -397,29 +397,29 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[4] =
+static const YY_CHAR yy_meta[5] =
     {   0,
-        1,    1,    2
+        1,    1,    1,    1
     } ;
 
-static const flex_int16_t yy_base[10] =
+static const flex_int16_t yy_base[9] =
     {   0,
-        0,    0,    5,    6,    6,    0,    0,    6,    2
+        0,    0,    5,    6,    6,    6,    6,    6
     } ;
 
-static const flex_int16_t yy_def[10] =
+static const flex_int16_t yy_def[9] =
     {   0,
-        8,    1,    8,    8,    8,    9,    9,    0,    8
+        8,    1,    8,    8,    8,    8,    8,    0
     } ;
 
-static const flex_int16_t yy_nxt[10] =
+static const flex_int16_t yy_nxt[11] =
     {   0,
-        4,    5,    6,    7,    8,    3,    8,    8,    8
+        4,    5,    6,    7,    8,    3,    8,    8,    8,    8
     } ;
 
-static const flex_int16_t yy_chk[10] =
+static const flex_int16_t yy_chk[11] =
     {   0,
-        1,    1,    1,    9,    3,    8,    8,    8,    8
+        1,    1,    1,    1,    3,    8,    8,    8,    8,    8
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -436,14 +436,13 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "word.l"
-#line 2 "word.l"
+#line 1 "countVowels.l"
+#line 2 "countVowels.l"
 #include <stdio.h>
-int line_count = 0;
-int word_count = 0;
-int char_count = 0;
+int vow = 0;
+int cons = 0;
+#line 445 "lex.yy.c"
 #line 446 "lex.yy.c"
-#line 447 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -660,9 +659,9 @@ YY_DECL
 		}
 
 	{
-#line 8 "word.l"
+#line 7 "countVowels.l"
 
-#line 666 "lex.yy.c"
+#line 665 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -720,27 +719,26 @@ do_action:	/* This label is used only to access EOF actions. */
 			goto yy_find_action;
 
 case 1:
-/* rule 1 can match eol */
 YY_RULE_SETUP
-#line 9 "word.l"
-{ line_count++; }
+#line 8 "countVowels.l"
+{vow++;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 10 "word.l"
-{ word_count++; char_count += yyleng; }
+#line 9 "countVowels.l"
+{ cons++; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 11 "word.l"
-{ char_count++; }
+#line 10 "countVowels.l"
+
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 12 "word.l"
+#line 11 "countVowels.l"
 ECHO;
 	YY_BREAK
-#line 744 "lex.yy.c"
+#line 742 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1745,17 +1743,17 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 12 "word.l"
-
-
-int main() {
-    yylex();
-    printf("\nLines: %d\nWords: %d\nCharacters: %d\n", line_count+1, word_count, char_count);
-    return 0;
-}
+#line 11 "countVowels.l"
 
 
 int yywrap() {
     return 1;
+}
+
+int main() {
+    printf("Enter the text\n");
+    yylex();
+    printf("Vowels = %d and Consonants = %d\n",vow,cons);
+    return 0;
 }
 
