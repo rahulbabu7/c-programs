@@ -13,7 +13,7 @@ int char_count = 0;
 
 int main() {
     yylex();
-    printf("\nLines: %d\nWords: %d\nCharacters: %d\n", line_count, word_count, char_count);
+    printf("\nLines: %d\nWords: %d\nCharacters: %d\n", line_count+1, word_count, char_count);
     return 0;
 }
 
