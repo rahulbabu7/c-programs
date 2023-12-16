@@ -7,6 +7,16 @@ int E(), Edash(), T(), Tdash(), F();
 char str1[50];
 const char *cursor;
 
+
+
+
+//!GRAMMAR
+//! E->TE'
+//! E'->+TE'|$
+//!T->FT'
+//! T''->*FT'|&
+//! F->i|(E)
+
 int main()
 {
     printf("Enter the string\n");
