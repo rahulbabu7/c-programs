@@ -41,12 +41,18 @@ void main()
             printf("\t%c", opt[i][j][0]);
         }
     }
+
+    //! table printed 
+
+
     stack[top] = '$';
     printf("\nEnter the input string:");
     scanf("%s", ip);
     i = 0;
     printf("\nSTACK\t\t\tINPUT STRING\t\t\tACTION\n");
     printf("\n%s\t\t\t%s\t\t\t", stack, ip);
+
+    
     while (i <= strlen(ip))
     {
         for (k = 0; k < n; k++)
